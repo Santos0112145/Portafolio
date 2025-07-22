@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-
+import imgWhatsapp from '../assets/iconowhatsapp.png';
 export default function Contacto() {
   return <div>
     {/** Header o Cabecera */}
@@ -29,6 +29,58 @@ export default function Contacto() {
         </div>
         
     </header>
+    {/** Contacto */}
+    <section className="relative text-gray-900 body-font h-screen w-full ">
+        <div className="absolute inset-0">
+            <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d838.1245240506303!2d-79.92041584630793!3d-2.223589350029223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sec!4v1753224124865!5m2!1ses-419!2sec"
+            className="w-full h-full grayscale contrast-125 opacity-40"
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Mapa de ubicación"
+            ></iframe>
+        
+        </div>
+        <div className='container px-5 py-24 mx-auto flex'>
+            <div className='lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10 shadow-md'>
+                <h2 className="text-gray-900 text-2xl mb-1 font-bold ">Contactame</h2>
+                <p className="leading-relaxed mb-5 text-gray-600">Ingrese su Email</p>
+                <div className="relative mb-4">
+                    <label for="email" className="leading-7 text-sm text-gray-600">Email</label>
+                    
+                    <input type="email"  placeholder='Ingrese su Email' className="w-full bg-white rounded border-2 border-blue-300 p-2 " />
+                </div>
+                <div className="relative mb-4">
+                    <label for="email" className="leading-7 text-sm text-gray-600">Mensaje</label>
+                    
+                    <textarea type="text"  placeholder='Dejame un mensaje' className="w-full bg-white rounded border-2 border-blue-300 p-6  " />
+                </div>
+                <button className="text-white bg-blue-500 border-0 p-2  rounded text-lg">Enviar</button>
+                <p className="text-xs text-gray-500 mt-3">Escribeme</p>
+            </div>
+        </div>
+        <div className=' flex items-end justify-end mb-2 fixed bottom-0 right-0'>
+            <a
+            href="https://wa.me/593959682902"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="fixed bottom-4 right-4 z-50"
+            >
+            <img
+                src={imgWhatsapp}
+                alt="WhatsApp"
+                className="w-12 h-12 object-cover animate-bounce cursor-pointer"
+            />
+            </a>
+
+        </div>
+    </section>
+    
+
+    
+
+    
   </div>
   
 }
