@@ -1,33 +1,59 @@
 import { Link } from 'react-router-dom';
 import imgWhatsapp from '../assets/iconowhatsapp.png';
+import { useState } from 'react';
 export default function Contacto() {
+    const [menuOpen, setMenuOpen] = useState(false); // Para controlar si el menú está visible en móvil
+
   return <div>
     {/** Header o Cabecera */}
-    <header className='text-gray-500 body-font'>
-        <div className='container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center'>
-            {/** Imagen de Fontawesone */}
-            <svg className='h-10 w-10' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512 ">
-            <path d="M20.8 34c16.5-6.2 35 2.2 41.2 18.7l110.2 294L257.3 55c4-13.7 16.5-23 30.7-23s26.7 9.4 30.7 23l85.1 291.7L514 52.8c6.2-16.5 24.6-24.9 41.2-18.7s24.9 24.7 18.7 41.2l-144 384c-4.8 12.9-17.4 21.3-31.2 20.7s-25.7-9.8-29.5-23L288 178.3 206.7 457c-3.9 13.2-15.8 22.5-29.5 23s-26.3-7.8-31.2-20.7L2 75.2C-4.2 58.7 4.2 40.2 20.8 34z"/></svg>
-
-            {/** Menu de Navegación */}
-            <nav className="md:ml-auto flex flex-wrap items-center  justify-center space-x-6 text-3xl">
-                {/** Link y to especificar la ruta de la pagina */}
-                <Link to="/menu" className="text-gray-500 hover:text-cyan-400 transition-colors duration-300 cursor-pointer">
-                    Inicio
-                </Link>
-                {/** Link y to especificar la ruta de la pagina */}
-                <Link to="/producto" className="text-gray-500 hover:text-cyan-400 transition-colors duration-300 cursor-pointer">
-                    Producto
-                </Link>
-                {/** Link y to especificar la ruta de la pagina */}
-                <Link to="/contacto" className="text-gray-500 hover:text-cyan-400 transition-colors duration-300 cursor-pointer">
-                    Contacto
-                </Link>
-
-            
-            </nav>
-        </div>
+    {/** Header o Cabecera */}
+     <header className="text-gray-500 body-font bg-white shadow-md">
+      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
         
+        {/* Logo */}
+        <div className="flex items-center justify-between w-full md:w-auto">
+          <svg className="h-10 w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M20.8 34c16.5-6.2 35 2.2 41.2 18.7l110.2 294L257.3 55c4-13.7 16.5-23 30.7-23s26.7 9.4 30.7 23l85.1 291.7L514 52.8c6.2-16.5 24.6-24.9 41.2-18.7s24.9 24.7 18.7 41.2l-144 384c-4.8 12.9-17.4 21.3-31.2 20.7s-25.7-9.8-29.5-23L288 178.3 206.7 457c-3.9 13.2-15.8 22.5-29.5 23s-26.3-7.8-31.2-20.7L2 75.2C-4.2 58.7 4.2 40.2 20.8 34z"/>
+          </svg>
+
+          {/* Botón hamburguesa solo visible en móviles */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="md:hidden text-3xl text-gray-600 focus:outline-none"
+          >
+            ☰
+          </button>
+        </div>
+
+        {/* Menú de navegación */}
+        <nav
+          className={`${
+            menuOpen ? 'flex' : 'hidden'
+          } flex-col md:flex md:flex-row md:items-center text-xl space-y-4 md:space-y-0 md:space-x-6 mt-4 md:mt-0`}
+        >
+          <Link
+            to="/menu"
+            className="hover:text-cyan-400 transition-colors duration-300"
+            onClick={() => setMenuOpen(false)} // Cierra el menú al hacer clic
+          >
+            Inicio
+          </Link>
+          <Link
+            to="/producto"
+            className="hover:text-cyan-400 transition-colors duration-300"
+            onClick={() => setMenuOpen(false)}
+          >
+            Producto
+          </Link>
+          <Link
+            to="/contacto"
+            className="hover:text-cyan-400 transition-colors duration-300"
+            onClick={() => setMenuOpen(false)}
+          >
+            Contacto
+          </Link>
+        </nav>
+      </div>
     </header>
     {/** Contacto */}
     <section className="relative text-gray-900 body-font h-screen w-full ">
